@@ -1,5 +1,6 @@
 import React from 'react';
 import 'semantic-ui-css/semantic.css';
+import axios from 'axios';
 import {
   BrowserRouter as Router,
   Switch,
