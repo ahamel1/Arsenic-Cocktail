@@ -1,20 +1,13 @@
 import React from 'react';
-import 'semantic-ui-css/semantic.css';
-import axios from 'axios';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
-import './App.css';
+import AlgoRandom from './components/AlgoRandom';
 
 function App() {
-  return (
-    <div className="App">
-      
-    </div>
-  );
+    return (
+      <div className="App">
+          <AlgoRandom />
+      </div>
+    );
+  
 }
 
 export default App;
