@@ -14,10 +14,6 @@ class AlgoRandom extends React.Component {
       };
     }
   
-    componentDidMount() {
-      this.getList();
-    }
-  
     getRandom = () => {
       let random = Math.floor(Math.random()*600) +1;
       console.log(random)
