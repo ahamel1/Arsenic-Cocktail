@@ -5,7 +5,7 @@ function FullRandom(props) {
     return (            
         <ul>
             {props.list.map((item, index) => 
-            <li index={item}>
+            <li key={index}> index={item}>
                 {item}
             </li>
 
