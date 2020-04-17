@@ -1,7 +1,7 @@
 import React from 'react';
 import FullRandom from "./FullRandom";
 import axios from "axios"
-import './AlgoRandom.css'
+
 
 
 
