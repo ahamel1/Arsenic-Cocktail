@@ -12,9 +12,11 @@ class AlgoRandom extends React.Component {
         ingredients : [],
         list : []
       };
+      this.getRandom = this.getRandom.bind(this);
+      this.getList = this.getList.bind(this)
     }
   
-    getRandom = () => {
+    getRandom()  {
       let random = Math.floor(Math.random()*600) +1;
       console.log(random)
       axios
@@ -25,7 +27,7 @@ class AlgoRandom extends React.Component {
             : this.setState({list: [...this.state.list, data.ingredients[0].strIngredient]})
         )}
 
-    getList = () => {
+    getList() {
         this.setState({list: [] });
         for (let i = 0; i < Math.floor(Math.random() * 10) + 2; i++) {
             this.getRandom()
