@@ -16,15 +16,17 @@ class AlgoRandom extends React.Component {
       this.getList = this.getList.bind(this)
     }
   
-    getRandom()  {
+    getRandom() {
       let random = Math.floor(Math.random()*600) +1;
       console.log(random)
       axios
         .get(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?iid=${random}`)
-        .then(response => response.data)
-        .then (data => data.ingredients === null 
-            ? this.getRandom() 
-            : this.setState({list: [...this.state.list, data.ingredients[0].strIngredient]})
+        .then (response => {
+          const { ingredients } = response.data
+          ingredients === null
+            ? this.getRandom()
+            : this.setState({list: [...this.state.list, ingredients[0].strIngredient]})
+        }
         )}
 
     getList() {
