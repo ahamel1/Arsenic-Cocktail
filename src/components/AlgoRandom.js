@@ -1,8 +1,7 @@
 import React from 'react';
 import FullRandom from "./FullRandom";
-import axios from "axios"
-
-
+import axios from "axios";
+import Button from "./Button";
 
 
 class AlgoRandom extends React.Component {
@@ -37,19 +36,15 @@ class AlgoRandom extends React.Component {
         
     }
     
-    
     render() {
       return (
         <div className="AlgoRandom">
-            <h1>La folie</h1>
+          <h1>La folie</h1>
           <FullRandom list={this.state.list} />
-         <button type="button" onClick={this.getList}>
-           New ingredient
-         </button>
+          <Button className="generate" onClick={this.getList} value="Générer" />
         </div>
       )
     }
 }
   
-export default AlgoRandom
-  
+export default AlgoRandom;
