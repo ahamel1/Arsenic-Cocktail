@@ -15,14 +15,6 @@ class NavBar extends React.Component {
 
     return (
       <Menu borderless icon style= {menuStyle}>
-        <Menu.Item
-          name='return'
-          active={activeItem === 'return'}
-          onClick={this.handleItemClick}
-        >
-          <Icon name='arrow left' />
-        </Menu.Item>
-
         <Menu.Menu position= "right">
         <Menu.Item
           name='home'
