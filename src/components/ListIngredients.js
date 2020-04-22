@@ -1,18 +1,14 @@
 import React from 'react';
 
-
-function FullRandom(props) {
+function FullRandom({list}) {
     return (            
         <ul>
-            {props.list.map((item, index) => 
+            {list.map((item, index) => 
             <li key={index}> {item}
             </li>
-
             )}
         </ul>
     )
 }
 
-
 export default FullRandom;
-

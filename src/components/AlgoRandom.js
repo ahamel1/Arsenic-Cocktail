@@ -1,9 +1,6 @@
 import React from 'react';
-import FullRandom from "./FullRandom";
+import ListIngredients from "./ListIngredients";
 import axios from "axios"
-
-
-
 
 class AlgoRandom extends React.Component {
     constructor(props) {
@@ -37,19 +34,24 @@ class AlgoRandom extends React.Component {
         
     }
     
-    
     render() {
       return (
         <div className="AlgoRandom">
+          <div className="partOne">
             <h1>La folie</h1>
-          <FullRandom list={this.state.list} />
-         <button type="button" onClick={this.getList}>
-           New ingredient
-         </button>
+            <button type="button" onClick={this.getList}>
+              Générer
+            </button>
+          </div>
+          <div className="partTwo">
+            <ListIngredients list={this.state.list} />
+          </div>
+          <div className="partThree">
+            <img src="" alt="Cocktail" />
+          </div>
         </div>
       )
     }
 }
   
-export default AlgoRandom
-  
+export default AlgoRandom;
