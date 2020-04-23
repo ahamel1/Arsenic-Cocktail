@@ -11,7 +11,7 @@ function LegalPage() {
       <div className = "sans-alcool">
       </div>
       <div id = "text-over">
-    L'ABUS D'ALCOOL EST DANGEREUX POUR LA SANTÉ, IL FAUT EN ABUSER AVEC MODÉRATION
+    CE SITE C'EST NOUS ON L'A FAIT, LA BISE
       </div>
     </div>
   )
