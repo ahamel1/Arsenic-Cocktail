@@ -2,7 +2,12 @@ import React from 'react';
 import { Icon, Menu } from 'semantic-ui-react'
 
 class NavBar extends React.Component {
-  state = { activeItem: '' }
+  constructor(props){
+    super(props);
+    this.state = { activeItem: '' }
+    this.handleItemClick = this.handleItemClick.bind(this)
+  }
+
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
