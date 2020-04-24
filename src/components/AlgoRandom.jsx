@@ -1,5 +1,5 @@
 import React from "react";
-import FullRandom from "./FullRandom";
+import ListIngredients from "./ListIngredients";
 import axios from "axios";
 import Button from "./Button";
 
@@ -10,8 +10,15 @@ class AlgoRandom extends React.Component {
       ingredients: [],
       list: [],
     };
-    this.getRandom = this.getRandom.bind(this);
     this.getList = this.getList.bind(this);
+    this.getRandom = this.getRandom.bind(this);
+  }
+
+  getList() {
+    this.setState({ list: [] });
+    for (let i = 0; i < Math.floor(Math.random() * 10) + 2; i++) {
+      this.getRandom();
+    }
   }
 
   getRandom() {
@@ -31,19 +38,19 @@ class AlgoRandom extends React.Component {
       });
   }
 
-  getList() {
-    this.setState({ list: [] });
-    for (let i = 0; i < Math.floor(Math.random() * 10) + 2; i++) {
-      this.getRandom();
-    }
-  }
-
   render() {
     return (
       <div className="AlgoRandom">
-        <h1>La folie</h1>
-        <FullRandom list={this.state.list} />
-        <Button className="generate" onClick={this.getList} value="Générer" />
+        <div className="partOne">
+          <h1>La folie</h1>
+          <Button onClick={this.getList}>Générer</Button>
+        </div>
+        <div className="partTwo">
+          <ListIngredients list={this.state.list} />
+        </div>
+        <div className="partThree">
+          <img src="" alt="Cocktail" />
+        </div>
       </div>
     );
   }
