@@ -1,14 +1,13 @@
-import React from 'react';
+import React from "react";
 
-function FullRandom({list}) {
-    return (            
-        <ul>
-            {list.map((item, index) => 
-            <li key={index}> {item}
-            </li>
-            )}
-        </ul>
-    )
+function ListIngredients({ list }) {
+  return (
+    <ul>
+      {list.map((item, index) => {
+        return <li key={index}> {item}</li>;
+      })}
+    </ul>
+  );
 }
 
-export default FullRandom;
+export default ListIngredients;
