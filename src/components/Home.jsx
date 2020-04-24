@@ -9,7 +9,6 @@ function Home () {
       <HomePart title='SOFT' buttonTexte="J'SUIS CHAUD" linkTo='/soft' imageHomeSrc='' imageHomeAlt='banane' />
     </div>
   );
-  
 }
 
 export default Home;

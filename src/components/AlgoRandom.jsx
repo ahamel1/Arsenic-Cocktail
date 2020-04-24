@@ -1,28 +1,28 @@
-import React from "react";
-import ListIngredients from "./ListIngredients";
-import axios from "axios";
-import Button from "./Button";
+import React from 'react';
+import ListIngredients from './ListIngredients';
+import axios from 'axios';
+import Button from './Button';
 
 class AlgoRandom extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props);
     this.state = {
       ingredients: [],
-      list: [],
+      list: []
     };
     this.getList = this.getList.bind(this);
     this.getRandom = this.getRandom.bind(this);
   }
 
-  getList() {
+  getList () {
     this.setState({ list: [] });
     for (let i = 0; i < Math.floor(Math.random() * 10) + 2; i++) {
       this.getRandom();
     }
   }
 
-  getRandom() {
-    let random = Math.floor(Math.random() * 600) + 1;
+  getRandom () {
+    const random = Math.floor(Math.random() * 600) + 1;
     console.log(random);
     axios
       .get(
@@ -33,23 +33,23 @@ class AlgoRandom extends React.Component {
         ingredients === null
           ? this.getRandom()
           : this.setState({
-              list: [...this.state.list, ingredients[0].strIngredient],
-            });
+            list: [...this.state.list, ingredients[0].strIngredient]
+          });
       });
   }
 
-  render() {
+  render () {
     return (
-      <div className="AlgoRandom">
-        <div className="partOne">
+      <div className='AlgoRandom'>
+        <div className='partOne'>
           <h1>La folie</h1>
-          <Button onClick={this.getList}>Générer</Button>
+          <Button handleonClick={this.getList}>Générer</Button>
         </div>
-        <div className="partTwo">
+        <div className='partTwo'>
           <ListIngredients list={this.state.list} />
         </div>
-        <div className="partThree">
-          <img src="" alt="Cocktail" />
+        <div className='partThree'>
+          <img src='' alt='Cocktail' />
         </div>
       </div>
     );

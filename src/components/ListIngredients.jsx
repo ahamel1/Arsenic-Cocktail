@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-function ListIngredients({ list }) {
+function ListIngredients ({ list }) {
   return (
     <ul>
       {list.map((item, index) => {
