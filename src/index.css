@@ -12,6 +12,11 @@
   list-style: none;
 }
 
+h2 {
+  color: white;
+  font-size: 3rem !important;
+}
+
 .navbar-position {
   position: fixed;
   right: 0;
@@ -28,6 +33,10 @@
 .container {
   display: flex;
   height: 100vh;
+}
+
+.container img {
+  height: 60%;
 }
 
 .alcool {
@@ -48,9 +57,10 @@
   width: var(--width-background-part);
 }
 
-.AlgoRandom {
+.algoRandom {
   background-color: var(--purple-background);
   align-items: center;
+  padding-bottom: 4rem;
 }
 
 .part {
@@ -60,6 +70,30 @@
 
 .button-part {
   align-self: flex-end;
+}
+
+.button-cpnt {
+  border: 2px solid white;
+  background: none;
+  padding: 1em;
+  color: white;
+  border-radius: 3px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.homepart-position {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 4rem;
+}
+
+li {
+  color: white;
+  font-size: 2rem;
+  line-height: 3rem;
 }
 
 #text-over {
