@@ -40,15 +40,15 @@ class AlgoRandom extends React.Component {
 
   render () {
     return (
-      <div className='AlgoRandom'>
-        <div className='partOne'>
+      <div className='AlgoRandom container'>
+        <div className='part button-part'>
           <h1>La folie</h1>
           <Button onClick={this.getList}>Générer</Button>
         </div>
-        <div className='partTwo'>
+        <div className='part'>
           <ListIngredients list={this.state.list} />
         </div>
-        <div className='partThree'>
+        <div className='part'>
           <img src='' alt='Cocktail' />
         </div>
       </div>

@@ -9,6 +9,20 @@
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  list-style: none;
+}
+
+.navbar-position {
+  position: fixed;
+  right: 0;
+}
+
+#menu {
+  background: none;
+}
+
+.item {
+  color: white !important;
 }
 
 .container {
@@ -32,6 +46,20 @@
   background-color: var(--yellow-background);
   height: 100vh;
   width: var(--width-background-part);
+}
+
+.AlgoRandom {
+  background-color: var(--purple-background);
+  align-items: center;
+}
+
+.part {
+  width: var(--width-background-part);
+  text-align: center;
+}
+
+.button-part {
+  align-self: flex-end;
 }
 
 #text-over {
