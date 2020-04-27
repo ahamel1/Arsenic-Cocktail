@@ -1,7 +1,8 @@
 import React from 'react';
 import ListIngredients from './ListIngredients';
 import axios from 'axios';
-import Button from './Button';
+import ButtonCpnt from './ButtonCpnt';
+import TitleCpnt from './TitleCpnt';
 
 class AlgoRandom extends React.Component {
   constructor (props) {
@@ -40,15 +41,15 @@ class AlgoRandom extends React.Component {
 
   render () {
     return (
-      <div className='AlgoRandom'>
-        <div className='partOne'>
-          <h1>La folie</h1>
-          <Button onClick={this.getList}>Générer</Button>
+      <div className='algoRandom container'>
+        <div className='part button-part'>
+          <TitleCpnt title="LA FOLIE" />
+          <ButtonCpnt className='button-cpnt' onClick={this.getList}>Générer</ButtonCpnt>
         </div>
-        <div className='partTwo'>
+        <div className='part'>
           <ListIngredients list={this.state.list} />
         </div>
-        <div className='partThree'>
+        <div className='part'>
           <img src='' alt='Cocktail' />
         </div>
       </div>

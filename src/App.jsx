@@ -25,7 +25,7 @@ function App () {
           </Route>
           <Route path='/folie'>
             <AlgoRandom />
-          </Route> 
+          </Route>
         </Switch>
       </Router>
     </div>
