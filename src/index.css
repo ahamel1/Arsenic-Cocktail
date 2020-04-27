@@ -80,6 +80,12 @@ h2 {
   border-radius: 3px;
   font-size: 1.2rem;
   font-weight: bold;
+  transition: all 200ms cubic-bezier(.66,-0.58,.53,1.56);
+}
+
+.button-cpnt:hover {
+  transform: scale(1.05);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .homepart-position {
