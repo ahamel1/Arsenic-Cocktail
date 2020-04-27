@@ -1,15 +1,16 @@
 import React from 'react';
 
-function LegalPage () {
+function About() {
   return (
     <div className='container'>
       <div className='alcool' />
       <div className='la-folie' />
       <div className='sans-alcool' />
-      <div id='text-over' />
+      <div id='text-over'>
     CE SITE C'EST NOUS ON L'A FAIT, LA BISE
+      </div>
     </div>
   );
 }
 
-export default LegalPage;
+export default About;
