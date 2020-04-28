@@ -43,7 +43,7 @@ class AlgoRandom extends React.Component {
       <div className='AlgoRandom'>
         <div className='partOne'>
           <h1>La folie</h1>
-          <Button handleonClick={this.getList}>Générer</Button>
+          <Button onClick={this.getList}>Générer</Button>
         </div>
         <div className='partTwo'>
           <ListIngredients list={this.state.list} />
