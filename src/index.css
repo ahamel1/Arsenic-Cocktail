@@ -1,8 +1,8 @@
 :root {
-    --blue-background: rgba(79, 208, 228, 1);
-    --purple-background: rgba(189, 151, 251, 1);
-    --yellow-background: rgba(246, 179, 116, 1);
-    --width-background-part: calc(100% / 3);
+  --blue-background : rgba(79, 208, 228, 1);
+  --purple-background : rgba(189, 151, 251, 1);
+  --yellow-background : rgba(246, 179, 116, 1);
+  --width-background-part : 100.1%;
 }
 
 * {
