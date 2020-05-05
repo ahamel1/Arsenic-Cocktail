@@ -1,7 +1,8 @@
 import React from 'react';
 import ListIngredients from './ListIngredients';
 import axios from 'axios';
-import Button from './Button';
+import ButtonCpnt from './ButtonCpnt';
+import TitleCpnt from './TitleCpnt';
 
 class AlgoRandom extends React.Component {
   constructor (props) {
@@ -10,18 +11,31 @@ class AlgoRandom extends React.Component {
       ingredients: [],
       list: []
     };
-    this.getList = this.getList.bind(this);
+    this.getListFolie = this.getListFolie.bind(this);
+    this.getListAlcool = this.getListAlcool.bind(this);
+    this.getListSoft = this.getListSoft.bind(this);
     this.getRandom = this.getRandom.bind(this);
   }
 
-  getList () {
-    this.setState({ list: [] });
+  getListFolie () {
     for (let i = 0; i < Math.floor(Math.random() * 10) + 2; i++) {
       this.getRandom();
     }
   }
 
-  getRandom () {
+  getListAlcool (numberAlcohol) {
+    for (let i = 0; i < numberAlcohol; i++) {
+      this.getRandom('Yes');
+    }
+  }
+
+  getListSoft (numberSoft) {
+    for (let i = 0; i < numberSoft; i++) {
+      this.getRandom('No');
+    }
+  }
+
+  getRandom (alcool) {
     const random = Math.floor(Math.random() * 600) + 1;
     console.log(random);
     axios
@@ -30,25 +44,55 @@ class AlgoRandom extends React.Component {
       )
       .then((response) => {
         const { ingredients } = response.data;
-        ingredients === null
-          ? this.getRandom()
-          : this.setState({
-            list: [...this.state.list, ingredients[0].strIngredient]
-          });
+        if (alcool) {
+          if (alcool === 'Yes') {
+            if (ingredients !== null && ingredients[0].strAlcohol === alcool) {
+              this.setState({
+                list: [...this.state.list, ingredients[0].strIngredient]
+              });
+            } else {
+              this.getRandom('Yes');
+            }
+          } else if (alcool === 'No') {
+            if (ingredients !== null && ingredients[0].strAlcohol !== 'Yes') {
+              this.setState({
+                list: [...this.state.list, ingredients[0].strIngredient]
+              });
+            } else {
+              this.getRandom('No');
+            }
+          }
+        } else {
+          ingredients === null
+            ? this.getRandom()
+            : this.setState({
+              list: [...this.state.list, ingredients[0].strIngredient]
+            });
+        }
       });
+  }
+
+  handleChoice (numberSoft, numberAlcool, alcool) {
+    this.setState({ list: [] });
+    if (alcool) {
+      alcool === 'Yes' ? this.getListAlcool(numberAlcool) : this.getListSoft(numberSoft);
+      this.getListSoft(numberSoft);
+    } else {
+      this.getListFolie();
+    }
   }
 
   render () {
     return (
-      <div className='AlgoRandom'>
-        <div className='partOne'>
-          <h1>La folie</h1>
-          <Button onClick={this.getList}>Générer</Button>
+      <div className='algoRandom container'>
+        <div className='part button-part'>
+          <TitleCpnt title="LA FOLIE" />
+          <ButtonCpnt className='button-cpnt' onClick={() => this.handleChoice(this.props.numberSoft, this.props.numberAlcohol, this.props.alcool)}>Générer</ButtonCpnt>
         </div>
-        <div className='partTwo'>
+        <div className='part'>
           <ListIngredients list={this.state.list} />
         </div>
-        <div className='partThree'>
+        <div className='part'>
           <img src='' alt='Cocktail' />
         </div>
       </div>
