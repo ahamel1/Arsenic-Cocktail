@@ -17,6 +17,7 @@ const Cursor = ({ value, onChange }) => {
           onChange={onChange}
         />
       </label>
+      <p>{value}</p>
     </>
   );
 };
