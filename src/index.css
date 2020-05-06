@@ -154,6 +154,12 @@ li {
     line-height: 3rem;
 }
 
+.trails-main {
+  color: white;
+  font-size: 2rem;
+  line-height: 3rem;
+}
+
 #text-over {
     color: white;
     text-align: center;
