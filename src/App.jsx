@@ -30,6 +30,7 @@ function App() {
             <AlgoRandom
               title="ALCOOL"
               className="algoAlcool container"
+              stateAlcool="Yes"
               cursor
             />
           </Route>
@@ -37,6 +38,7 @@ function App() {
             <AlgoRandom
               title="SANS ALCOOL"
               className="algoSoft container"
+              stateAlcool="No"
               cursor
             />
           </Route>

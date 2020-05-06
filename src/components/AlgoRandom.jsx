@@ -13,7 +13,7 @@ class AlgoRandom extends React.Component {
       // ingredients: [],
       list: [],
       nbrAlcohol: 0,
-      // numberSoft: 0,
+      nbrSoft: 0,
     };
     this.getListFolie = this.getListFolie.bind(this);
     this.getListAlcool = this.getListAlcool.bind(this);
@@ -79,13 +79,17 @@ class AlgoRandom extends React.Component {
 
   handleChoice(numberSoft, numberAlcool, alcool) {
     this.setState({ list: [] });
+    const { nbrSoft } = this.state;
     if (alcool) {
       if (alcool === 'Yes') {
         this.getListAlcool(numberAlcool);
+        this.setState({
+          nbrSoft: Math.floor(Math.random() * (11 - numberAlcool)),
+        });
+        this.getListSoft(nbrSoft);
       } else {
         this.getListSoft(numberSoft);
       }
-      this.getListSoft(numberSoft);
     } else {
       this.getListFolie();
     }
@@ -98,14 +102,7 @@ class AlgoRandom extends React.Component {
   }
 
   render() {
-    const {
-      className,
-      title,
-      cursor,
-      numberSoft,
-      numberAlcohol,
-      alcool,
-    } = this.props;
+    const { className, title, cursor, numberSoft, stateAlcool } = this.props;
     const { list, nbrAlcohol } = this.state;
     return (
       <div className={className}>
@@ -116,7 +113,9 @@ class AlgoRandom extends React.Component {
           <TitleCpnt title={title} />
           <ButtonCpnt
             className="button-cpnt"
-            onClick={() => this.handleChoice(numberSoft, numberAlcohol, alcool)}
+            onClick={() =>
+              this.handleChoice(numberSoft, nbrAlcohol, stateAlcool)
+            }
           >
             Générer
           </ButtonCpnt>
@@ -137,8 +136,7 @@ AlgoRandom.propTypes = {
   title: PropTypes.string.isRequired,
   cursor: PropTypes.string.isRequired,
   numberSoft: PropTypes.number.isRequired,
-  numberAlcohol: PropTypes.number.isRequired,
-  alcool: PropTypes.string.isRequired,
+  stateAlcool: PropTypes.number.isRequired,
 };
 
 export default AlgoRandom;
