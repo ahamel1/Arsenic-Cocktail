@@ -43,21 +43,3 @@ ListIngredients.propTypes = {
 };
 
 export default ListIngredients;
-
-//     return (
-//       <div className="trails-main">
-//         <div>
-//           {trail.map(({ x, height, ...rest }, index) => (
-//             <animated.ul
-//               key={list[index]}
-//               className="trails-text"
-//               style={{ ...rest, transform: x.interpolate(x => `translate3d(0,${x}px,0)`) }}>
-//               <animated.li style={{ height }}>{list[index]}</animated.li>
-//             </animated.ul>
-//           ))}
-//         </div>
-//       </div>
-//     )
-// }
-//
-// export default ListIngredients;
