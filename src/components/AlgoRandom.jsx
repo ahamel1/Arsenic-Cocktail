@@ -12,14 +12,15 @@ class AlgoRandom extends React.Component {
     this.state = {
       // ingredients: [],
       list: [],
-      nbrAlcohol: 0,
-      nbrSoft: 0,
+      nbrAlcohol: 1,
+      nbrSoft: 1,
     };
     this.getListFolie = this.getListFolie.bind(this);
     this.getListAlcool = this.getListAlcool.bind(this);
     this.getListSoft = this.getListSoft.bind(this);
     this.getRandom = this.getRandom.bind(this);
     this.changeStateAlcool = this.changeStateAlcool.bind(this);
+    this.changeStateSoft = this.changeStateSoft.bind(this);
   }
 
   getListFolie() {
@@ -84,7 +85,7 @@ class AlgoRandom extends React.Component {
       if (alcool === 'Yes') {
         this.getListAlcool(numberAlcool);
         this.setState({
-          nbrSoft: Math.floor(Math.random() * (11 - numberAlcool)),
+          nbrSoft: numberSoft,
         });
         this.getListSoft(nbrSoft);
       } else {
@@ -101,21 +102,42 @@ class AlgoRandom extends React.Component {
     });
   }
 
+  changeStateSoft(e) {
+    this.setState({
+      nbrSoft: e.target.value,
+    });
+  }
+
   render() {
-    const { className, title, cursor, numberSoft, stateAlcool } = this.props;
-    const { list, nbrAlcohol } = this.state;
+    const { className, title, cursor, stateAlcool } = this.props;
+    const { list, nbrAlcohol, nbrSoft } = this.state;
     return (
       <div className={className}>
         <div className="part button-part">
           {cursor && (
-            <Cursor value={nbrAlcohol} onChange={this.changeStateAlcool} />
+            <Cursor
+              value={nbrAlcohol}
+              onChange={this.changeStateAlcool}
+              content="nbrAlcohol"
+              idCursor="nbrAlcohol"
+              typeDrink="nbrAlcohol"
+              titleCursor="Nombre d'alcool(s)"
+            />
+          )}
+          {cursor && (
+            <Cursor
+              value={nbrSoft}
+              onChange={this.changeStateSoft}
+              content="numberSoft"
+              idCursor="numberSoft"
+              typeDrink="numberSoft"
+              titleCursor="Nombre de soft(s)"
+            />
           )}
           <TitleCpnt title={title} />
           <ButtonCpnt
             className="button-cpnt"
-            onClick={() =>
-              this.handleChoice(numberSoft, nbrAlcohol, stateAlcool)
-            }
+            onClick={() => this.handleChoice(nbrSoft, nbrAlcohol, stateAlcool)}
           >
             Générer
           </ButtonCpnt>
@@ -135,7 +157,6 @@ AlgoRandom.propTypes = {
   className: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   cursor: PropTypes.string.isRequired,
-  numberSoft: PropTypes.number.isRequired,
   stateAlcool: PropTypes.number.isRequired,
 };
 
