@@ -12,14 +12,15 @@ class AlgoRandom extends React.Component {
     this.state = {
       // ingredients: [],
       list: [],
-      nbrAlcohol: 0,
-      // numberSoft: 0,
+      nbrAlcohol: 1,
+      nbrSoft: 1,
     };
     this.getListFolie = this.getListFolie.bind(this);
     this.getListAlcool = this.getListAlcool.bind(this);
     this.getListSoft = this.getListSoft.bind(this);
     this.getRandom = this.getRandom.bind(this);
     this.changeStateAlcool = this.changeStateAlcool.bind(this);
+    this.changeStateSoft = this.changeStateSoft.bind(this);
   }
 
   getListFolie() {
@@ -79,13 +80,17 @@ class AlgoRandom extends React.Component {
 
   handleChoice(numberSoft, numberAlcool, alcool) {
     this.setState({ list: [] });
+    const { nbrSoft } = this.state;
     if (alcool) {
       if (alcool === 'Yes') {
         this.getListAlcool(numberAlcool);
+        this.setState({
+          nbrSoft: numberSoft,
+        });
+        this.getListSoft(nbrSoft);
       } else {
         this.getListSoft(numberSoft);
       }
-      this.getListSoft(numberSoft);
     } else {
       this.getListFolie();
     }
@@ -97,29 +102,49 @@ class AlgoRandom extends React.Component {
     });
   }
 
+  changeStateSoft(e) {
+    this.setState({
+      nbrSoft: e.target.value,
+    });
+  }
+
   render() {
-    const {
-      className,
-      title,
-      cursor,
-      numberSoft,
-      numberAlcohol,
-      alcool,
-    } = this.props;
-    const { list, nbrAlcohol } = this.state;
+    const { className, title, cursor, stateAlcool } = this.props;
+    const { list, nbrAlcohol, nbrSoft } = this.state;
     return (
       <div className={className}>
-        <div className="part button-part">
+        <div className="part first-part">
           {cursor && (
-            <Cursor value={nbrAlcohol} onChange={this.changeStateAlcool} />
+            <Cursor
+              value={nbrAlcohol}
+              onChange={this.changeStateAlcool}
+              content="nbrAlcohol"
+              idCursor="nbrAlcohol"
+              typeDrink="nbrAlcohol"
+              titleCursor="Nombre d'alcool(s)"
+            />
           )}
-          <TitleCpnt title={title} />
-          <ButtonCpnt
-            className="button-cpnt"
-            onClick={() => this.handleChoice(numberSoft, numberAlcohol, alcool)}
-          >
-            Générer
-          </ButtonCpnt>
+          {cursor && (
+            <Cursor
+              value={nbrSoft}
+              onChange={this.changeStateSoft}
+              content="numberSoft"
+              idCursor="numberSoft"
+              typeDrink="numberSoft"
+              titleCursor="Nombre de soft(s)"
+            />
+          )}
+          <div className="button-part">
+            <TitleCpnt title={title} />
+            <ButtonCpnt
+              className="button-cpnt"
+              onClick={() =>
+                this.handleChoice(nbrSoft, nbrAlcohol, stateAlcool)
+              }
+            >
+              Générer
+            </ButtonCpnt>
+          </div>
         </div>
         <div className="part">
           <ListIngredients list={list} />
@@ -136,9 +161,7 @@ AlgoRandom.propTypes = {
   className: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   cursor: PropTypes.string.isRequired,
-  numberSoft: PropTypes.number.isRequired,
-  numberAlcohol: PropTypes.number.isRequired,
-  alcool: PropTypes.string.isRequired,
+  stateAlcool: PropTypes.number.isRequired,
 };
 
 export default AlgoRandom;

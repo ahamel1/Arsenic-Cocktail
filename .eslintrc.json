@@ -22,6 +22,7 @@
         "react"
     ],
     "rules": {
+        "react/jsx-curly-newline": "off",
         "react/jsx-no-bind": [
             1, {
                 "allowArrowFunctions": true
