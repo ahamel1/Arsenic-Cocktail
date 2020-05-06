@@ -11,7 +11,7 @@ const Cursor = ({
 }) => {
   return (
     <div className="cursor-container">
-      <label htmlFor={content}>
+      <label className="label-cursor" htmlFor={content}>
         {titleCursor}
         <input
           className="cursor"

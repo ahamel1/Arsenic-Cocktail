@@ -113,7 +113,7 @@ class AlgoRandom extends React.Component {
     const { list, nbrAlcohol, nbrSoft } = this.state;
     return (
       <div className={className}>
-        <div className="part button-part">
+        <div className="part first-part">
           {cursor && (
             <Cursor
               value={nbrAlcohol}
@@ -134,13 +134,17 @@ class AlgoRandom extends React.Component {
               titleCursor="Nombre de soft(s)"
             />
           )}
-          <TitleCpnt title={title} />
-          <ButtonCpnt
-            className="button-cpnt"
-            onClick={() => this.handleChoice(nbrSoft, nbrAlcohol, stateAlcool)}
-          >
-            Générer
-          </ButtonCpnt>
+          <div className="button-part">
+            <TitleCpnt title={title} />
+            <ButtonCpnt
+              className="button-cpnt"
+              onClick={() =>
+                this.handleChoice(nbrSoft, nbrAlcohol, stateAlcool)
+              }
+            >
+              Générer
+            </ButtonCpnt>
+          </div>
         </div>
         <div className="part">
           <ListIngredients list={list} />
