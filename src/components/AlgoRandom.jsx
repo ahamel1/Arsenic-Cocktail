@@ -35,8 +35,8 @@ class AlgoRandom extends React.Component {
     }
   }
 
-  getListSoft(numberSoft) {
-    for (let i = 0; i < numberSoft; i += 1) {
+  getListSoft() {
+    for (let i = 0; i < Math.floor(Math.random() * 10) + 2; i += 1) {
       this.getRandom('No');
     }
   }
