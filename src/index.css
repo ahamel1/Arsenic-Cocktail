@@ -146,6 +146,13 @@ h2 {
   color: white;
 }
 
+#button-favori {
+  background: none;
+  border: none;
+  height: 7vh;
+  width: 7vh;
+}
+
 /* Buttons */
 .button-part {
   align-self: end;

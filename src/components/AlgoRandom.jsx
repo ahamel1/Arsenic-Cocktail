@@ -11,7 +11,7 @@ class AlgoRandom extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // ingredients: [],
+      buttonFavori: false,
       list: [],
       nbrAlcohol: 1,
       nbrSoft: 1,
@@ -44,6 +44,7 @@ class AlgoRandom extends React.Component {
   }
 
   getRandom(alcool) {
+    this.setState({ buttonFavori: false });
     const random = Math.floor(Math.random() * 600) + 1;
     axios
       .get(
@@ -102,6 +103,7 @@ class AlgoRandom extends React.Component {
     const { list } = this.state;
     const recipe = list.join('**');
     localStorage.setItem('Cocktail1', recipe);
+    this.setState({ buttonFavori: true });
   }
 
   changeStateAlcool(e) {
@@ -124,7 +126,7 @@ class AlgoRandom extends React.Component {
       cursorSoft,
       stateAlcool,
     } = this.props;
-    const { list, nbrAlcohol, nbrSoft } = this.state;
+    const { list, nbrAlcohol, nbrSoft, buttonFavori } = this.state;
     return (
       <div className={className}>
         <div className="part first-part">
@@ -150,7 +152,10 @@ class AlgoRandom extends React.Component {
           )}
           <div className="button-part">
             <TitleCpnt title={title} />
-            <StarCpnt handleFavori={this.handleFavori} />
+            <StarCpnt
+              handleFavori={this.handleFavori}
+              stateFavori={buttonFavori}
+            />
             <ButtonCpnt
               className="button-cpnt"
               onClick={() =>
