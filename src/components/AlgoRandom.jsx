@@ -35,8 +35,8 @@ class AlgoRandom extends React.Component {
     }
   }
 
-  getListSoft() {
-    for (let i = 0; i < Math.floor(Math.random() * 10) + 2; i += 1) {
+  getListSoft(numberSoft) {
+    for (let i = 0; i < numberSoft; i += 1) {
       this.getRandom('No');
     }
   }
@@ -89,7 +89,7 @@ class AlgoRandom extends React.Component {
         });
         this.getListSoft(nbrSoft);
       } else {
-        this.getListSoft(numberSoft);
+        this.getListSoft(nbrSoft);
       }
     } else {
       this.getListFolie();
@@ -109,12 +109,18 @@ class AlgoRandom extends React.Component {
   }
 
   render() {
-    const { className, title, cursor, stateAlcool } = this.props;
+    const {
+      className,
+      title,
+      cursorAlcool,
+      cursorSoft,
+      stateAlcool,
+    } = this.props;
     const { list, nbrAlcohol, nbrSoft } = this.state;
     return (
       <div className={className}>
         <div className="part first-part">
-          {cursor && (
+          {cursorAlcool && (
             <Cursor
               value={nbrAlcohol}
               onChange={this.changeStateAlcool}
@@ -124,7 +130,7 @@ class AlgoRandom extends React.Component {
               titleCursor="Nombre d'alcool(s)"
             />
           )}
-          {cursor && (
+          {cursorSoft && (
             <Cursor
               value={nbrSoft}
               onChange={this.changeStateSoft}
@@ -160,7 +166,8 @@ class AlgoRandom extends React.Component {
 AlgoRandom.propTypes = {
   className: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  cursor: PropTypes.string.isRequired,
+  cursorAlcool: PropTypes.string.isRequired,
+  cursorSoft: PropTypes.string.isRequired,
   stateAlcool: PropTypes.number.isRequired,
 };
 
