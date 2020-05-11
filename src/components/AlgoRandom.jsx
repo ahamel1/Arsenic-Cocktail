@@ -152,10 +152,6 @@ class AlgoRandom extends React.Component {
           )}
           <div className="button-part">
             <TitleCpnt title={title} />
-            <StarCpnt
-              handleFavori={this.handleFavori}
-              stateFavori={buttonFavori}
-            />
             <ButtonCpnt
               className="button-cpnt"
               onClick={() =>
@@ -164,6 +160,10 @@ class AlgoRandom extends React.Component {
             >
               Générer
             </ButtonCpnt>
+            <StarCpnt
+              handleFavori={this.handleFavori}
+              stateFavori={buttonFavori}
+            />
           </div>
         </div>
         <div className="part">
