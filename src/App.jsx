@@ -31,7 +31,8 @@ function App() {
               title="ALCOOL"
               className="algoAlcool container"
               stateAlcool="Yes"
-              cursor
+              cursorAlcool
+              cursorSoft
             />
           </Route>
           <Route path="/soft">
@@ -39,6 +40,7 @@ function App() {
               title="SANS ALCOOL"
               className="algoSoft container"
               stateAlcool="No"
+              cursorSoft
             />
           </Route>
         </Switch>
