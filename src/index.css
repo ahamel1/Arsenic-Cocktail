@@ -7,7 +7,7 @@
   --yellow-background-gradient: linear-gradient(to top, #ff7a52, #ffe366);
 
   --pages-algo--padding-bottom: 4rem;
-    --width-background-part: calc(100.1%);
+  --width-background-part: calc(100.1%);
 }
 
 * {
@@ -23,9 +23,9 @@ h2 {
 }
 
 .navbar-position {
-    position: fixed;
-    z-index: 1000;
-    right: 0;
+  position: fixed;
+  z-index: 1000;
+  right: 0;
 }
 
 #menu {
@@ -79,7 +79,8 @@ h2 {
   align-items: center;
 }
 
-.algoRandom .first-part, .algoSoft .first-part {
+.algoRandom .first-part,
+.algoSoft .first-part {
   display: grid;
   align-items: flex-end;
 }
@@ -209,4 +210,17 @@ li {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.card {
+  width: 60%;
+  border-radius: 5px;
+  box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.5s;
+  will-change: transform;
+  border: 15px solid white;
+}
+
+.card:hover {
+  box-shadow: 0px 30px 100px -10px rgba(0, 0, 0, 0.4);
 }
