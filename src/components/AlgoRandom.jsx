@@ -6,6 +6,8 @@ import ButtonCpnt from './ButtonCpnt';
 import TitleCpnt from './TitleCpnt';
 import Cursor from './Cursor';
 import StarCpnt from './StarCpnt';
+import verreVide from './verre-vide.jpg';
+import ImageRandom from './ImageRandom';
 
 class AlgoRandom extends React.Component {
   constructor(props) {
@@ -15,6 +17,7 @@ class AlgoRandom extends React.Component {
       list: [],
       nbrAlcohol: 1,
       nbrSoft: 1,
+      imageLink: verreVide,
     };
     this.getListFolie = this.getListFolie.bind(this);
     this.getListAlcool = this.getListAlcool.bind(this);
@@ -23,6 +26,7 @@ class AlgoRandom extends React.Component {
     this.changeStateAlcool = this.changeStateAlcool.bind(this);
     this.changeStateSoft = this.changeStateSoft.bind(this);
     this.handleFavori = this.handleFavori.bind(this);
+    this.getOneImage = this.getOneImage.bind(this);
   }
 
   getListFolie() {
@@ -81,6 +85,14 @@ class AlgoRandom extends React.Component {
       });
   }
 
+  getOneImage() {
+    axios
+      .get(`https://www.thecocktaildb.com/api/json/v1/1/random.php`)
+      .then((res) =>
+        this.setState({ imageLink: res.data.drinks[0].strDrinkThumb })
+      );
+  }
+
   handleChoice(numberSoft, numberAlcool, alcool) {
     this.setState({ list: [] });
     const { nbrSoft } = this.state;
@@ -97,6 +109,7 @@ class AlgoRandom extends React.Component {
     } else {
       this.getListFolie();
     }
+    this.getOneImage();
   }
 
   handleFavori() {
@@ -126,7 +139,7 @@ class AlgoRandom extends React.Component {
       cursorSoft,
       stateAlcool,
     } = this.props;
-    const { list, nbrAlcohol, nbrSoft, buttonFavori } = this.state;
+    const { list, nbrAlcohol, nbrSoft, buttonFavori, imageLink } = this.state;
     return (
       <div className={className}>
         <div className="part first-part">
@@ -170,7 +183,7 @@ class AlgoRandom extends React.Component {
           <ListIngredients list={list} />
         </div>
         <div className="part">
-          <img src="" alt="Cocktail" />
+          <ImageRandom source={imageLink} />
         </div>
       </div>
     );
