@@ -5,6 +5,7 @@ import ListIngredients from './ListIngredients';
 import ButtonCpnt from './ButtonCpnt';
 import TitleCpnt from './TitleCpnt';
 import Cursor from './Cursor';
+import StarCpnt from './StarCpnt';
 
 class AlgoRandom extends React.Component {
   constructor(props) {
@@ -21,6 +22,7 @@ class AlgoRandom extends React.Component {
     this.getRandom = this.getRandom.bind(this);
     this.changeStateAlcool = this.changeStateAlcool.bind(this);
     this.changeStateSoft = this.changeStateSoft.bind(this);
+    this.handleFavori = this.handleFavori.bind(this);
   }
 
   getListFolie() {
@@ -96,6 +98,12 @@ class AlgoRandom extends React.Component {
     }
   }
 
+  handleFavori() {
+    const { list } = this.state;
+    const recipe = list.join('**');
+    localStorage.setItem('Cocktail1', recipe);
+  }
+
   changeStateAlcool(e) {
     this.setState({
       nbrAlcohol: e.target.value,
@@ -142,6 +150,7 @@ class AlgoRandom extends React.Component {
           )}
           <div className="button-part">
             <TitleCpnt title={title} />
+            <StarCpnt handleFavori={this.handleFavori} />
             <ButtonCpnt
               className="button-cpnt"
               onClick={() =>
