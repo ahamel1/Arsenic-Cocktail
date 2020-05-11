@@ -5,15 +5,19 @@ import ListIngredients from './ListIngredients';
 import ButtonCpnt from './ButtonCpnt';
 import TitleCpnt from './TitleCpnt';
 import Cursor from './Cursor';
+import StarCpnt from './StarCpnt';
+import verreVide from './verre-vide.jpg';
+import ImageRandom from './ImageRandom';
 
 class AlgoRandom extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // ingredients: [],
+      buttonFavori: false,
       list: [],
       nbrAlcohol: 1,
       nbrSoft: 1,
+      imageLink: verreVide,
     };
     this.getListFolie = this.getListFolie.bind(this);
     this.getListAlcool = this.getListAlcool.bind(this);
@@ -21,6 +25,8 @@ class AlgoRandom extends React.Component {
     this.getRandom = this.getRandom.bind(this);
     this.changeStateAlcool = this.changeStateAlcool.bind(this);
     this.changeStateSoft = this.changeStateSoft.bind(this);
+    this.handleFavori = this.handleFavori.bind(this);
+    this.getOneImage = this.getOneImage.bind(this);
   }
 
   getListFolie() {
@@ -42,6 +48,7 @@ class AlgoRandom extends React.Component {
   }
 
   getRandom(alcool) {
+    this.setState({ buttonFavori: false });
     const random = Math.floor(Math.random() * 600) + 1;
     axios
       .get(
@@ -78,6 +85,14 @@ class AlgoRandom extends React.Component {
       });
   }
 
+  getOneImage() {
+    axios
+      .get(`https://www.thecocktaildb.com/api/json/v1/1/random.php`)
+      .then((res) =>
+        this.setState({ imageLink: res.data.drinks[0].strDrinkThumb })
+      );
+  }
+
   handleChoice(numberSoft, numberAlcool, alcool) {
     this.setState({ list: [] });
     const { nbrSoft } = this.state;
@@ -89,11 +104,19 @@ class AlgoRandom extends React.Component {
         });
         this.getListSoft(nbrSoft);
       } else {
-        this.getListSoft(numberSoft);
+        this.getListSoft(nbrSoft);
       }
     } else {
       this.getListFolie();
     }
+    this.getOneImage();
+  }
+
+  handleFavori() {
+    const { list } = this.state;
+    const recipe = list.join('**');
+    localStorage.setItem('Cocktail1', recipe);
+    this.setState({ buttonFavori: true });
   }
 
   changeStateAlcool(e) {
@@ -109,12 +132,18 @@ class AlgoRandom extends React.Component {
   }
 
   render() {
-    const { className, title, cursor, stateAlcool } = this.props;
-    const { list, nbrAlcohol, nbrSoft } = this.state;
+    const {
+      className,
+      title,
+      cursorAlcool,
+      cursorSoft,
+      stateAlcool,
+    } = this.props;
+    const { list, nbrAlcohol, nbrSoft, buttonFavori, imageLink } = this.state;
     return (
       <div className={className}>
         <div className="part first-part">
-          {cursor && (
+          {cursorAlcool && (
             <Cursor
               value={nbrAlcohol}
               onChange={this.changeStateAlcool}
@@ -124,7 +153,7 @@ class AlgoRandom extends React.Component {
               titleCursor="Nombre d'alcool(s)"
             />
           )}
-          {cursor && (
+          {cursorSoft && (
             <Cursor
               value={nbrSoft}
               onChange={this.changeStateSoft}
@@ -144,13 +173,17 @@ class AlgoRandom extends React.Component {
             >
               Générer
             </ButtonCpnt>
+            <StarCpnt
+              handleFavori={this.handleFavori}
+              stateFavori={buttonFavori}
+            />
           </div>
         </div>
         <div className="part">
           <ListIngredients list={list} />
         </div>
         <div className="part">
-          <img src="" alt="Cocktail" />
+          <ImageRandom source={imageLink} />
         </div>
       </div>
     );
@@ -160,7 +193,8 @@ class AlgoRandom extends React.Component {
 AlgoRandom.propTypes = {
   className: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  cursor: PropTypes.string.isRequired,
+  cursorAlcool: PropTypes.string.isRequired,
+  cursorSoft: PropTypes.string.isRequired,
   stateAlcool: PropTypes.number.isRequired,
 };
 

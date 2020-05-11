@@ -5,6 +5,7 @@ import NavBar from './components/NavBar';
 import LegalPage from './components/LegalPage';
 import About from './components/About';
 import AlgoRandom from './components/AlgoRandom';
+import Favori from './components/Favori';
 
 function App() {
   return (
@@ -31,7 +32,8 @@ function App() {
               title="ALCOOL"
               className="algoAlcool container"
               stateAlcool="Yes"
-              cursor
+              cursorAlcool
+              cursorSoft
             />
           </Route>
           <Route path="/soft">
@@ -39,8 +41,10 @@ function App() {
               title="SANS ALCOOL"
               className="algoSoft container"
               stateAlcool="No"
+              cursorSoft
             />
           </Route>
+          <Route path="/favori" component={Favori} />
         </Switch>
       </Router>
     </div>
