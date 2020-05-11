@@ -39,7 +39,6 @@ function App() {
               title="SANS ALCOOL"
               className="algoSoft container"
               stateAlcool="No"
-              cursor
             />
           </Route>
         </Switch>
