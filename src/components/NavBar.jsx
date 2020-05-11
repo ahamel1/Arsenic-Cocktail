@@ -16,6 +16,11 @@ const NavBar = () => {
             <Icon size="large" circular bordered name="home" />
           </Menu.Item>
         </Link>
+        <Link to="/favori">
+          <Menu.Item name="star outline">
+            <Icon size="large" circular bordered name="star outline" />
+          </Menu.Item>
+        </Link>
         <Link to="/legal">
           <Menu.Item name="info">
             <Icon size="large" circular bordered name="info" />

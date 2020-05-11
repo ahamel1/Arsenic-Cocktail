@@ -146,12 +146,24 @@ h2 {
   color: white;
 }
 
+#button-favori {
+  background: none;
+  border: none;
+  height: 7vh;
+  width: 7vh;
+}
+
 /* Buttons */
 .button-part {
+  width: 100%;
   align-self: end;
+  display: grid;
+  grid-template-columns: 100%;
+  justify-items: center;
 }
 
 .button-cpnt {
+  width: 150px;
   border: 2px solid white;
   background: none;
   padding: 1em;
