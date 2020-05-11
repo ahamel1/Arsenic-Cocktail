@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Favori = () => {
-  const [recipe] = useState(
-    localStorage.getItem('Cocktail1').split('**') || ['Votre liste est vide...']
-  );
+  const [recipe, setRecipe] = useState(['Votre liste est vide...']);
+  useEffect(() => {
+    if (localStorage.getItem('Cocktail1')) {
+      setRecipe(localStorage.getItem('Cocktail1').split('**'));
+    }
+  }, []);
 
   return (
     <div className="container">
