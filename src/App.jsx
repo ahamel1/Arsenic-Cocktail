@@ -5,6 +5,7 @@ import NavBar from './components/NavBar';
 import LegalPage from './components/LegalPage';
 import About from './components/About';
 import AlgoRandom from './components/AlgoRandom';
+import Favori from './components/Favori';
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
               stateAlcool="No"
             />
           </Route>
+          <Route path="/favori" component={Favori} />
         </Switch>
       </Router>
     </div>
