@@ -26,12 +26,15 @@ function App() {
             <About />
           </Route>
           <Route path="/folie">
-            <AlgoRandom title="LA FOLIE" className="algoRandom container" />
+            <AlgoRandom
+              title="LA FOLIE"
+              className="algoRandom container container-mobile-algo"
+            />
           </Route>
           <Route path="/alcool">
             <AlgoRandom
               title="ALCOOL"
-              className="algoAlcool container"
+              className="algoAlcool container container-mobile-algo"
               stateAlcool="Yes"
               cursorAlcool
               cursorSoft
@@ -40,7 +43,7 @@ function App() {
           <Route path="/soft">
             <AlgoRandom
               title="SANS ALCOOL"
-              className="algoSoft container"
+              className="algoSoft container container-mobile-algo"
               stateAlcool="No"
               cursorSoft
             />

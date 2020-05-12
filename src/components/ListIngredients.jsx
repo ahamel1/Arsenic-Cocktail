@@ -14,15 +14,15 @@ function ListIngredients({ list }) {
     config,
     opacity: toggle ? 1 : 0,
     x: toggle ? 0 : 20,
-    height: toggle ? 50 : 0,
+    height: toggle ? 27 : 0,
     from: { opacity: 0, x: 20, height: 0 },
   });
 
   return (
     <div className="trails-main">
-      <div>
+      <ul>
         {trail.map(({ x, height, ...rest }, index) => (
-          <animated.ul
+          <animated.div
             key={list[index]}
             className="trails-text"
             style={{
@@ -31,9 +31,9 @@ function ListIngredients({ list }) {
             }}
           >
             <animated.li style={{ height }}>{list[index]}</animated.li>
-          </animated.ul>
+          </animated.div>
         ))}
-      </div>
+      </ul>
     </div>
   );
 }
