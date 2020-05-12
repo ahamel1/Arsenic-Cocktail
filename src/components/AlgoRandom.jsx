@@ -179,10 +179,10 @@ class AlgoRandom extends React.Component {
             />
           </div>
         </div>
-        <div className="part">
+        <div className="part second-part-mobile">
           <ListIngredients list={list} />
         </div>
-        <div className="part">
+        <div className="part third-part-mobile">
           <ImageRandom source={imageLink} />
         </div>
       </div>

@@ -31,7 +31,7 @@ function App() {
           <Route path="/alcool">
             <AlgoRandom
               title="ALCOOL"
-              className="algoAlcool container"
+              className="algoAlcool container container-alcool-mobile"
               stateAlcool="Yes"
               cursorAlcool
               cursorSoft
