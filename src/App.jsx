@@ -6,6 +6,7 @@ import LegalPage from './components/LegalPage';
 import About from './components/About';
 import AlgoRandom from './components/AlgoRandom';
 import Favori from './components/Favori';
+import HomeMobile from './components/HomeMobile';
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
             />
           </Route>
           <Route path="/favori" component={Favori} />
+          <Route path="/mobile" component={HomeMobile} />
         </Switch>
       </Router>
     </div>
