@@ -8,6 +8,7 @@
 
   --pages-algo--padding-bottom: 4rem;
   --width-background-part: calc(100.1%);
+  --height-background-part-mobile: calc(100vh / 3);
 }
 
 * {
@@ -263,5 +264,23 @@ li {
   #menu {
     display: flex;
     justify-content: center;
+  }
+
+  .container-mobile {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 0;
+  }
+
+  .alcool-mobile,
+  .la-folie-mobile,
+  .sans-alcool-mobile {
+    height: var(--height-background-part-mobile);
+    width: 100vw;
+  }
+
+  #text-over {
+    line-height: 2.5rem;
+    font-size: 2rem;
   }
 }

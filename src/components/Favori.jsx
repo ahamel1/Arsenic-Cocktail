@@ -9,10 +9,10 @@ const Favori = () => {
   }, []);
 
   return (
-    <div className="container">
-      <div className="alcool" />
-      <div className="la-folie" />
-      <div className="sans-alcool" />
+    <div className="container container-mobile">
+      <div className="alcool alcool-mobile" />
+      <div className="la-folie la-folie-mobile" />
+      <div className="sans-alcool sans-alcool-mobile" />
       <div id="text-over">
         <h2>Favori</h2>
         <ul>
