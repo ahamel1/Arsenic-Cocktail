@@ -224,3 +224,44 @@ li {
 .card:hover {
   box-shadow: 0px 30px 100px -10px rgba(0, 0, 0, 0.4);
 }
+
+.homepart-mobile {
+  height: 100%;
+}
+
+.home-mobile {
+  height: 100px;
+}
+
+@media screen and (max-width: 920px) {
+  .homepart-position {
+    justify-content: center;
+  }
+
+  .homepart-position img {
+    height: 60vh;
+  }
+
+  .la-folie {
+    height: 100vh;
+  }
+
+  .swiper-container {
+    height: 100vh;
+  }
+
+  .navbar-position {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .ui.menu:not(.vertical) .right.item,
+  .ui.menu:not(.vertical) .right.menu {
+    margin-left: 0 !important;
+  }
+
+  #menu {
+    display: flex;
+    justify-content: center;
+  }
+}
