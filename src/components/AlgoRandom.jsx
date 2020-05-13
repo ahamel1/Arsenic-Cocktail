@@ -143,26 +143,28 @@ class AlgoRandom extends React.Component {
     return (
       <div className={className}>
         <div className="part first-part">
-          {cursorAlcool && (
-            <Cursor
-              value={nbrAlcohol}
-              onChange={this.changeStateAlcool}
-              content="nbrAlcohol"
-              idCursor="nbrAlcohol"
-              typeDrink="nbrAlcohol"
-              titleCursor="Nombre d'alcool(s)"
-            />
-          )}
-          {cursorSoft && (
-            <Cursor
-              value={nbrSoft}
-              onChange={this.changeStateSoft}
-              content="numberSoft"
-              idCursor="numberSoft"
-              typeDrink="numberSoft"
-              titleCursor="Nombre de soft(s)"
-            />
-          )}
+          <div className="all-cursors-container">
+            {cursorAlcool && (
+              <Cursor
+                value={nbrAlcohol}
+                onChange={this.changeStateAlcool}
+                content="nbrAlcohol"
+                idCursor="nbrAlcohol"
+                typeDrink="nbrAlcohol"
+                titleCursor="Nombre d'alcool(s)"
+              />
+            )}
+            {cursorSoft && (
+              <Cursor
+                value={nbrSoft}
+                onChange={this.changeStateSoft}
+                content="numberSoft"
+                idCursor="numberSoft"
+                typeDrink="numberSoft"
+                titleCursor="Nombre de soft(s)"
+              />
+            )}
+          </div>
           <div className="button-part">
             <TitleCpnt title={title} />
             <ButtonCpnt
@@ -179,10 +181,10 @@ class AlgoRandom extends React.Component {
             />
           </div>
         </div>
-        <div className="part">
+        <div className="part second-part">
           <ListIngredients list={list} />
         </div>
-        <div className="part">
+        <div className="part third-part">
           <ImageRandom source={imageLink} />
         </div>
       </div>

@@ -1,15 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Favori = () => {
-  const [recipe] = useState(
-    localStorage.getItem('Cocktail1').split('**') || ['Votre liste est vide...']
-  );
+  const [recipe, setRecipe] = useState(['Votre liste est vide...']);
+  useEffect(() => {
+    if (localStorage.getItem('Cocktail1')) {
+      setRecipe(localStorage.getItem('Cocktail1').split('**'));
+    }
+  }, []);
 
   return (
-    <div className="container">
-      <div className="alcool" />
-      <div className="la-folie" />
-      <div className="sans-alcool" />
+    <div className="container container-mobile">
+      <div className="alcool alcool-other-pages" />
+      <div className="la-folie la-folie-other-pages" />
+      <div className="sans-alcool sans-alcool-other-pages" />
       <div id="text-over">
         <h2>Favori</h2>
         <ul>
