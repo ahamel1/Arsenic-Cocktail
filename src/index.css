@@ -93,7 +93,9 @@ h2 {
   text-align: center;
 }
 
-.algoAlcool .first-part,.algoRandom .first-part, .algoSoft .first-part {
+.algoAlcool .first-part,
+.algoRandom .first-part,
+.algoSoft .first-part {
   height: 100%;
   display: grid;
   grid-template-rows: 80% 20%;
@@ -243,14 +245,13 @@ h2 {
   box-shadow: 0px 30px 100px -10px rgba(0, 0, 0, 0.4);
 }
 
-.homepart-mobile {
-  height: 100%;
+/* ------------------------------------------------------------------------------- */
+@media screen and (min-width: 920px) and (max-width: 1200px) {
+  h2 {
+    font-size: 3rem !important;
+  }
 }
 
-.home-mobile {
-  height: 100px;
-}
-/* ------------------------------------------------------------------------------- */
 @media screen and (max-width: 920px) {
   * {
     padding: 0;
@@ -294,7 +295,6 @@ h2 {
 
   /* LEGAL ABOUT FAVORI */
   #text-over {
-    
     font-size: 2rem;
     line-height: 2.5rem;
     width: 80%;
@@ -307,16 +307,17 @@ h2 {
   .container-mobile {
     display: flex;
     flex-direction: column;
-    
   }
 
-  .alcool-other-pages, .la-folie-other-pages, .sans-alcool-other-pages {
+  .alcool-other-pages,
+  .la-folie-other-pages,
+  .sans-alcool-other-pages {
     height: var(--height-background-part-mobile);
     width: 100vw;
   }
 
   /* ALGO PARTS */
-  
+
   .part {
     width: 100%;
   }
@@ -327,7 +328,9 @@ h2 {
     grid-template-rows: 45% 45%;
     align-content: end;
   }
-  .algoAlcool .first-part,.algoRandom .first-part, .algoSoft .first-part {
+  .algoAlcool .first-part,
+  .algoRandom .first-part,
+  .algoSoft .first-part {
     grid-template-rows: 50% 35%;
     align-content: end;
     padding-bottom: 1rem;
@@ -384,14 +387,14 @@ h2 {
     font-size: 1rem;
     line-height: 1rem;
   }
-  
+
   .cursor {
     width: 100%;
     height: 10px;
     margin-top: 2vh;
     -webkit-appearance: none;
     border-radius: 5px;
-    
+
     box-shadow: inset 0 3px 18px rgba(0, 0, 0, 0.2);
   }
 
@@ -402,7 +405,7 @@ h2 {
   .algoSoft .cursor {
     background-color: var(--yellow-background);
   }
-  
+
   .cursor::-moz-range-thumb,
   .cursor::-webkit-slider-thumb {
     -webkit-appearance: none;
@@ -414,12 +417,12 @@ h2 {
   .button-part {
     display: grid;
     grid-template-rows: 50% 50%;
-    row-gap: 0;
+    row-gap: 5px;
     align-items: center;
     justify-content: center;
   }
 
-  .button-part h2{
+  .button-part h2 {
     grid-column-start: 1;
     grid-column-end: 6;
     grid-row-start: 1;
@@ -430,7 +433,7 @@ h2 {
   h2 {
     font-size: 3rem !important;
   }
-  
+
   .button-cpnt {
     grid-column-start: 3;
     grid-column-end: 5;
@@ -476,7 +479,4 @@ h2 {
     will-change: transform;
     border: 5px solid var(--white-font);
   }
-
-
-  
 }
