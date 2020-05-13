@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { useMediaPredicate } from 'react-media-hook';
 import Home from './components/Home';
 import NavBar from './components/NavBar';
 import LegalPage from './components/LegalPage';
@@ -9,6 +10,7 @@ import Favori from './components/Favori';
 import HomeMobile from './components/HomeMobile';
 
 function App() {
+  const biggerThan920 = useMediaPredicate('(min-width: 920px)');
   return (
     <div className="App">
       <Router>
@@ -17,7 +19,7 @@ function App() {
         </div>
         <Switch>
           <Route exact path="/">
-            <Home />
+            {biggerThan920 ? <Home /> : <HomeMobile />}
           </Route>
           <Route path="/legal">
             <LegalPage />
@@ -46,7 +48,6 @@ function App() {
             />
           </Route>
           <Route path="/favori" component={Favori} />
-          <Route path="/mobile" component={HomeMobile} />
         </Switch>
       </Router>
     </div>
