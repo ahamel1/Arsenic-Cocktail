@@ -5,6 +5,8 @@ import NavBar from './components/NavBar';
 import LegalPage from './components/LegalPage';
 import About from './components/About';
 import AlgoRandom from './components/AlgoRandom';
+import Favori from './components/Favori';
+import HomeMobile from './components/HomeMobile';
 
 function App() {
   return (
@@ -24,23 +26,30 @@ function App() {
             <About />
           </Route>
           <Route path="/folie">
-            <AlgoRandom title="LA FOLIE" className="algoRandom container" />
+            <AlgoRandom
+              title="LA FOLIE"
+              className="algoRandom container container-mobile-algo"
+            />
           </Route>
           <Route path="/alcool">
             <AlgoRandom
               title="ALCOOL"
-              className="algoAlcool container"
+              className="algoAlcool container container-mobile-algo"
               stateAlcool="Yes"
-              cursor
+              cursorAlcool
+              cursorSoft
             />
           </Route>
           <Route path="/soft">
             <AlgoRandom
               title="SANS ALCOOL"
-              className="algoSoft container"
+              className="algoSoft container container-mobile-algo"
               stateAlcool="No"
+              cursorSoft
             />
           </Route>
+          <Route path="/favori" component={Favori} />
+          <Route path="/mobile" component={HomeMobile} />
         </Switch>
       </Router>
     </div>
