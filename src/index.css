@@ -27,7 +27,7 @@ li {
 
 h2 {
   color: white;
-  font-size: 5rem !important;
+  font-size: 4rem !important;
 }
 
 .navbar-position {
@@ -98,14 +98,6 @@ h2 {
   display: grid;
   grid-template-rows: 80% 20%;
 }
-
-/* .algoRandom .first-part {
-  height: 100%;
-  display: grid;
-
-  grid-template-rows: 70% 30%;
-} */
-
 
 .all-cursors-container {
   width: 100%;
@@ -183,7 +175,8 @@ h2 {
   width: 100%;
   justify-self: flex-end;
   display: grid;
-  grid-template-rows: 40% 30% 30%;
+  grid-template-rows: 60px 50px 50px;
+  row-gap: 15px;
   align-items: center;
   justify-items: center;
 }
@@ -327,6 +320,7 @@ h2 {
   .algoAlcool .first-part,.algoRandom .first-part, .algoSoft .first-part {
     grid-template-rows: 50% 35%;
     align-content: end;
+    margin-bottom: 3rem;
   }
   .first-part {
     grid-column-start: 1;
