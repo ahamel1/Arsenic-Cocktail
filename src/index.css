@@ -27,7 +27,7 @@ li {
 
 h2 {
   color: white;
-  font-size: 4rem !important;
+  font-size: 3.5rem !important;
 }
 
 .navbar-position {
@@ -126,6 +126,7 @@ h2 {
 
 .label-cursor {
   display: grid;
+  row-gap: 15px;
   height: 100%;
   width: 50%;
   color: var(--white-font);
@@ -315,12 +316,11 @@ h2 {
     grid-template-columns: 60% 40%;
     grid-template-rows: 45% 45%;
     align-content: end;
-    padding-bottom: 2vh;
   }
   .algoAlcool .first-part,.algoRandom .first-part, .algoSoft .first-part {
     grid-template-rows: 50% 35%;
     align-content: end;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
   }
   .first-part {
     grid-column-start: 1;
@@ -404,6 +404,7 @@ h2 {
   .button-part {
     display: grid;
     grid-template-rows: 50% 50%;
+    row-gap: 0;
     align-items: center;
     justify-content: center;
   }
@@ -413,10 +414,10 @@ h2 {
     grid-column-end: 6;
     grid-row-start: 1;
     grid-row-end: 2;
+    align-self: start;
   }
 
   h2 {
-    color: white;
     font-size: 3rem !important;
   }
   
