@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { useMediaPredicate } from 'react-media-hook';
+import PWAPrompt from 'react-ios-pwa-prompt';
 import Home from './components/Home';
 import NavBar from './components/NavBar';
 import LegalPage from './components/LegalPage';
@@ -52,6 +53,7 @@ function App() {
           </Route>
           <Route path="/favori" component={Favori} />
         </Switch>
+        <PWAPrompt />
       </Router>
     </div>
   );
