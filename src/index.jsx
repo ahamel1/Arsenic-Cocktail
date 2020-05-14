@@ -9,7 +9,13 @@ import * as serviceWorker from './serviceWorker';
 ReactDOM.render(
   <div>
     <App />
-    <PWAPrompt />
+    <PWAPrompt
+      copyTitle="Installer Arsenic Cocktail"
+      timesToShow={3}
+      copyBody="Téléchargez, l'experience Arsenic Cocktail n'en sera que meilleure"
+      copyShareButtonLabel="1) Appuyez sur le bouton 'partage'"
+      copyAddHomeButtonLabel="2) Appuyez sur 'Sur l'écran d'accueil'"
+    />
   </div>,
   document.getElementById('root')
 );
