@@ -15,6 +15,8 @@ ReactDOM.render(
       copyBody="Téléchargez, l'experience Arsenic Cocktail n'en sera que meilleure"
       copyShareButtonLabel="1) Appuyez sur le bouton 'partage'"
       copyAddHomeButtonLabel="2) Appuyez sur 'Sur l'écran d'accueil'"
+      copyClosePrompt="Fermer"
+      permanentlyHideOnDismiss={false}
     />
   </div>,
   document.getElementById('root')
