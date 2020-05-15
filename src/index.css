@@ -173,6 +173,11 @@ h2 {
   width: 7vh;
 }
 
+.listefav {
+  font-size: 2rem;
+  line-height: 3.5rem;
+}
+
 /* Buttons */
 .button-part {
   width: 100%;
@@ -223,8 +228,8 @@ h2 {
 #text-over {
   color: var(--white-font);
   text-align: center;
-  font-size: 5rem;
-  line-height: 5rem;
+  font-size: 3rem;
+  line-height: 4rem;
   width: 80%;
   position: absolute;
   top: 50%;
@@ -478,5 +483,24 @@ h2 {
     transition: box-shadow 0.5s;
     will-change: transform;
     border: 5px solid var(--white-font);
+  }
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 920px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+  .homepart-position {
+    justify-content: space-evenly;
+    flex-direction: row;
+  }
+  .container {
+    display: flex;
+    height: 100vh;
+  }
+
+  ul {
+    height: 30%;
+  }
+
+  .text-over-landscape {
+    height: 70vh;
   }
 }
