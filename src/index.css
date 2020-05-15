@@ -250,6 +250,24 @@ h2 {
   box-shadow: 0px 30px 100px -10px rgba(0, 0, 0, 0.4);
 }
 
+.ee {
+  height: 10px;
+  width: 10px;
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+}
+
+.ee img {
+  height: 10px;
+  width: 10px;
+}
+
+.ee button {
+  background: none;
+  border: none;
+}
+
 /* ------------------------------------------------------------------------------- */
 @media screen and (min-width: 920px) and (max-width: 1200px) {
   h2 {
