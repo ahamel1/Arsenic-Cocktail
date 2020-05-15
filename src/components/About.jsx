@@ -7,7 +7,9 @@ function About() {
       <div className="la-folie la-folie-other-pages" />
       <div className="sans-alcool sans-alcool-other-pages" />
       <div id="text-over">
-        CE SITE C&apos;EST NOUS ON L&apos;A FAIT, LA BISE
+        Cette application a été codée et designée par
+        <br />
+        Marion B, Erwan Q, Brice LG et Alice H.
       </div>
     </div>
   );
