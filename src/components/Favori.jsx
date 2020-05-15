@@ -13,11 +13,11 @@ const Favori = () => {
       <div className="alcool alcool-other-pages" />
       <div className="la-folie la-folie-other-pages" />
       <div className="sans-alcool sans-alcool-other-pages" />
-      <div id="text-over">
+      <div id="text-over" className="text-over-landscape">
         <h2>Favori</h2>
         <ul>
           {recipe.map((elt) => (
-            <li>{elt}</li>
+            <li className="listefav">{elt}</li>
           ))}
         </ul>
       </div>
